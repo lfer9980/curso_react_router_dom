@@ -10,7 +10,7 @@ function Menu() {
 						<NavLink 
 						to={route.to}
 						style={({ isActive }) => ({color: isActive ? "green": "blue" })}
-						end
+						key={route.to}
 						>{route.text}</NavLink>
 					</li>
 				))}

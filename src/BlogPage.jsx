@@ -8,7 +8,10 @@ function BlogPage() {
 			<h1>BlogPage</h1>
 			<ul>
 				{blogdata.map(post => 
-					<BlogLink post={post}/>
+					<BlogLink 
+						post={post}
+						key={post.slug}
+					/>
 					)}
 			</ul>
 		</>
