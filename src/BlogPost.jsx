@@ -18,6 +18,7 @@ function BlogPost() {
 
 	return(
 		<>
+			
 			<h2>{blogpost.title}</h2>
 			<button onClick={returnToBlog}>volver al blog</button>
 			<span>{blogpost.author}</span>
