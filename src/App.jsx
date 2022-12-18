@@ -6,7 +6,7 @@ import { ProfilePage } from './ProfilePage'
 import { BlogPost } from './BlogPost'
 import { LoginPage } from './LoginPage'
 import { LogoutPage } from './LogoutPage'
-import { AuthProvider, useAuth } from './auth'
+import { AuthProvider, AuthRoute, useAuth } from './auth'
 
 function App() {
   return (
@@ -20,9 +20,24 @@ function App() {
           <Route path='/blog' element={<BlogPage />}>
             <Route path=':slug' element={<BlogPost />} />
           </Route>
-          <Route path='/profile' element={<ProfilePage />} />
+
+          <Route
+            path='/profile'
+            element={
+              <AuthRoute>
+                <ProfilePage />
+              </AuthRoute>}
+          />
+
           <Route path='/login' element={<LoginPage />} />
-          <Route path='/logout' element={<LogoutPage />} />
+
+          <Route
+            path='/logout'
+            element={
+              <AuthRoute>
+                <LogoutPage />
+              </AuthRoute>}
+          />
 
           <Route path='*' element={<p>Not Found</p>} /> {/* siempre de ultimas */}
         </Routes>

@@ -4,12 +4,12 @@ import { useAuth } from "./auth";
 function ProfilePage() {
 	const auth = useAuth();
 
-	return(
+	return (
 		<>
 			<p>ProfilePage</p>
-			<p> Hola { auth.user.username }</p>
+			<p> Hola {auth.user?.username}</p>
 		</>
 	);
 }
 
-export {ProfilePage} ;
+export { ProfilePage };
