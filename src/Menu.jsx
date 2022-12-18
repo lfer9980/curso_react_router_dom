@@ -6,7 +6,7 @@ function Menu() {
 		<nav>
 			<ul>
 				{routes.map(route => (
-					<li>
+					<li key={route.to}>
 						<NavLink 
 						to={route.to}
 						style={({ isActive }) => ({color: isActive ? "green": "blue" })}
@@ -14,32 +14,6 @@ function Menu() {
 						>{route.text}</NavLink>
 					</li>
 				))}
-
-{/* 				<li>
-					<Link to="/">Home</Link>
-				</li>
-				<li>
-					<Link to="/Blog">Blog</Link>
-				</li>
-				<li>
-					<Link to="/Profile">Profile</Link>
-				</li> */}
-{/* 				<li>
-					<NavLink 
-					style={({ isActive }) => ({color: isActive ? "green": "blue" })}
-					to="/"
-					>Home</NavLink>
-				</li>
-				<li>
-					<NavLink to="/Blog"
-					style={({ isActive }) => ({color: isActive ? "green": "blue" })}
-					>Blog</NavLink>
-				</li>
-				<li>
-					<NavLink to="/profile"
-					style={({ isActive }) => ({color: isActive ? "green": "blue" })}
-					>Profile</NavLink>
-				</li> */}
 			</ul>
 		</nav>
 	);
@@ -60,6 +34,14 @@ routes.push({
 routes.push({
 	to: "/profile",
 	text: "Profile",
+})
+routes.push({
+	to: "/login",
+	text: "login",
+})
+routes.push({
+	to: "/logout",
+	text: "logout",
 })
 
 export {Menu};
