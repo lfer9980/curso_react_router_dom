@@ -1,6 +1,9 @@
 import React, { createContext, useContext, useState } from "react";
 import { useNavigate, Navigate } from "react-router-dom";
 
+/* esto en teoria deberia de mandarse y manejarse desde el backend */
+const adminList = ['Iris', 'RetaxMaster', 'freddier'];
+
 const AuthContext = createContext();
 
 function AuthProvider({ children }) {
@@ -8,7 +11,9 @@ function AuthProvider({ children }) {
 	const [user, setUser] = useState(null);
 
 	const login = ({ username }) => {
-		setUser({ username });
+		
+		const isAdmin = adminList.find(admin => admin === username);
+		setUser({ username, isAdmin });
 		navigate('./profile');
 	};
 
